@@ -100,11 +100,10 @@ public class Topic_04_05_Xpath_Css {
 		
 		driver.findElement(By.xpath("//a[@class='skip-link skip-account']//span[text()='Account']")).click();
         driver.findElement(By.xpath("//a[@title='Log Out']")).click();
-        Thread.sleep(5000);
         
-        String URL =driver.getCurrentUrl();
-        Assert.assertEquals(URL, "http://live.guru99.com/index.php/");
-        
+        //Verify Home page
+        Assert.assertTrue(driver.findElement(By.xpath("//div[@class='page-title']//img[contains(@src,'logo.png')]")).isDisplayed());
+        Assert.assertEquals(driver.getTitle(), "Home page");
 	}
 
 	public int randomNumber() {
