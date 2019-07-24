@@ -13,9 +13,9 @@ import org.testng.annotations.Test;
 
 public class Topic_07_Textbox_TextArea {
 	WebDriver driver;
-	String name, dateofbirth, address, city, state, pin, phone, email, password ,customerID;
+	String name, dateofbirth, address, city, state, pin, phone, email, password, customerID;
 	String newAdress, newCity, newState, newPin, newPhone, newEmail;
-	
+
 	By NameTextbox = By.name("name");
 	By DateOfBirthTextbox = By.name("dob");
 	By AddressTextArea = By.name("addr");
@@ -26,40 +26,37 @@ public class Topic_07_Textbox_TextArea {
 	By EmailTextbox = By.name("emailid");
 	By PasswordTextbox = By.name("password");
 	By Submitbutton = By.name("sub");
-	
-	By CustomerNameRow =By.xpath("//td[text() ='Customer Name']//following-sibling::td");
-	By BirthdayRow =By.xpath("//td[text() ='Birthdate']//following-sibling::td");
-	By AddressRow =By.xpath("//td[text() ='Address']//following-sibling::td");
-	By CityRow =By.xpath("//td[text() ='City']//following-sibling::td");
-	By StateRow =By.xpath("//td[text() ='State']//following-sibling::td");
-	By PinRow =By.xpath("//td[text() ='Pin']//following-sibling::td");
-	By MobileRow =By.xpath("//td[text() ='Mobile No.']//following-sibling::td");
-	By EmailRow =By.xpath("//td[text() ='Email']//following-sibling::td");
-	
-	
+
+	By CustomerNameRow = By.xpath("//td[text() ='Customer Name']//following-sibling::td");
+	By BirthdayRow = By.xpath("//td[text() ='Birthdate']//following-sibling::td");
+	By AddressRow = By.xpath("//td[text() ='Address']//following-sibling::td");
+	By CityRow = By.xpath("//td[text() ='City']//following-sibling::td");
+	By StateRow = By.xpath("//td[text() ='State']//following-sibling::td");
+	By PinRow = By.xpath("//td[text() ='Pin']//following-sibling::td");
+	By MobileRow = By.xpath("//td[text() ='Mobile No.']//following-sibling::td");
+	By EmailRow = By.xpath("//td[text() ='Email']//following-sibling::td");
 
 	@BeforeClass
 	public void beforeClass() {
-		//data input
-		name ="Eryn Overland";
-		dateofbirth ="2018-01-12";
-		address ="012 Larry Park";
-		city ="Colorado Springs";
-		state ="Colorado";
-		pin ="263194";
-		phone ="7193801618";
-		email ="eoverland0@sohugg.com";
-		password ="123456";
-		
-		//data edit
-		newAdress ="78721 Saint Paul Place";
-		newCity ="Winston Salem";
-		newState ="North Carolina";
-		newPin ="263195";
-		newPhone ="3364003897";
-		newEmail ="kweatherup5@ca.gov";
-	
-				
+		// data input
+		name = "Eryn Overland";
+		dateofbirth = "2018-01-12";
+		address = "012 Larry Park";
+		city = "Colorado Springs";
+		state = "Colorado";
+		pin = "263194";
+		phone = "7193801618";
+		email = "eoverland0@sohugg.com";
+		password = "123456";
+
+		// data edit
+		newAdress = "78721 Saint Paul Place";
+		newCity = "Winston Salem";
+		newState = "North Carolina";
+		newPin = "263195";
+		newPhone = "3364003897";
+		newEmail = "kweatherup5@ca.gov";
+
 		driver = new FirefoxDriver();
 		driver.get("http://demo.guru99.com/v4/");
 
@@ -90,45 +87,44 @@ public class Topic_07_Textbox_TextArea {
 		driver.findElement(PasswordTextbox).sendKeys(password);
 
 		driver.findElement(Submitbutton).click();
-		
-		
+
 		// Verify new customer create success
-		
+
 		Assert.assertTrue(driver.findElement(By.xpath("//table[@id ='customer']//p[@class='heading3' and text() ='Customer Registered Successfully!!!']")).isDisplayed());
 		// output new customer displayed
-		Assert.assertEquals(driver.findElement(CustomerNameRow).getText(),name);
-		Assert.assertEquals(driver.findElement(BirthdayRow).getText(),dateofbirth);
-		Assert.assertEquals(driver.findElement(AddressRow).getText(),address);
-		Assert.assertEquals(driver.findElement(CityRow).getText(),city);
-		Assert.assertEquals(driver.findElement(StateRow).getText(),state);
-		Assert.assertEquals(driver.findElement(PinRow).getText(),pin);
-		Assert.assertEquals(driver.findElement(MobileRow).getText(),phone);
-		Assert.assertEquals(driver.findElement(EmailRow).getText(),email);
-		
-		// get Dynamic Customer ID 
-		
+		Assert.assertEquals(driver.findElement(CustomerNameRow).getText(), name);
+		Assert.assertEquals(driver.findElement(BirthdayRow).getText(), dateofbirth);
+		Assert.assertEquals(driver.findElement(AddressRow).getText(), address);
+		Assert.assertEquals(driver.findElement(CityRow).getText(), city);
+		Assert.assertEquals(driver.findElement(StateRow).getText(), state);
+		Assert.assertEquals(driver.findElement(PinRow).getText(), pin);
+		Assert.assertEquals(driver.findElement(MobileRow).getText(), phone);
+		Assert.assertEquals(driver.findElement(EmailRow).getText(), email);
+
+		// get Dynamic Customer ID
+
 		customerID = driver.findElement(By.xpath("//td[text() ='Customer ID']//following-sibling::td")).getText();
-	
+
 	}
+
 	@Test
 	public void TC_02_EditCustomer() {
 		driver.findElement(By.linkText("Edit Customer")).click();
 		driver.findElement(By.name("cusid")).sendKeys(customerID);
 		driver.findElement(By.name("AccSubmit")).click();
-		
-		//check new customer show correct
-		
+
+		// check new customer show correct
+
 		Assert.assertEquals(driver.findElement(NameTextbox).getAttribute("value"), name);
-		Assert.assertEquals(driver.findElement(DateOfBirthTextbox).getAttribute("value"),dateofbirth);
+		Assert.assertEquals(driver.findElement(DateOfBirthTextbox).getAttribute("value"), dateofbirth);
 		Assert.assertEquals(driver.findElement(AddressTextArea).getText(), address);
 		Assert.assertEquals(driver.findElement(CityTextbox).getAttribute("value"), city);
 		Assert.assertEquals(driver.findElement(StateTextbox).getAttribute("value"), state);
 		Assert.assertEquals(driver.findElement(PinTextbox).getAttribute("value"), pin);
 		Assert.assertEquals(driver.findElement(PhoneTextbox).getAttribute("value"), phone);
 		Assert.assertEquals(driver.findElement(EmailTextbox).getAttribute("value"), email);
-		
-		
-		//edit customer
+
+		// edit customer
 		driver.findElement(AddressTextArea).clear();
 		driver.findElement(AddressTextArea).sendKeys(newAdress);
 		driver.findElement(CityTextbox).clear();
@@ -143,14 +139,14 @@ public class Topic_07_Textbox_TextArea {
 		driver.findElement(EmailTextbox).sendKeys(newEmail);
 
 		driver.findElement(Submitbutton).click();
-		
+
 		// check edited data successfully
-		Assert.assertEquals(driver.findElement(AddressRow).getText(),newAdress);
-		Assert.assertEquals(driver.findElement(CityRow).getText(),newCity);
-		Assert.assertEquals(driver.findElement(StateRow).getText(),newState);
-		Assert.assertEquals(driver.findElement(PinRow).getText(),newPin);
-		Assert.assertEquals(driver.findElement(MobileRow).getText(),newPhone);
-		Assert.assertEquals(driver.findElement(EmailRow).getText(),newEmail);
+		Assert.assertEquals(driver.findElement(AddressRow).getText(), newAdress);
+		Assert.assertEquals(driver.findElement(CityRow).getText(), newCity);
+		Assert.assertEquals(driver.findElement(StateRow).getText(), newState);
+		Assert.assertEquals(driver.findElement(PinRow).getText(), newPin);
+		Assert.assertEquals(driver.findElement(MobileRow).getText(), newPhone);
+		Assert.assertEquals(driver.findElement(EmailRow).getText(), newEmail);
 
 	}
 
