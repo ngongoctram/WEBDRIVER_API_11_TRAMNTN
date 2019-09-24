@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TIKI" parallel="false">
+  <test name="Run on FIREFOX">
+    <classes>
+      <class name="TestNG.TestNG_03_Priority_Skip"/>
+    </classes>
+  </test> 
+</suite> 

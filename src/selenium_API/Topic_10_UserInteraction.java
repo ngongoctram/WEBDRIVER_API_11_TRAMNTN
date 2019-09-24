@@ -42,7 +42,7 @@ public class Topic_10_UserInteraction {
 
 	}
 
-	@Test
+	// @Test
 	public void TC_01_HoverMouse() throws Exception {
 		driver.get("http://www.myntra.com/");
 
@@ -59,7 +59,7 @@ public class Topic_10_UserInteraction {
 
 	}
 
-	@Test
+	// @Test
 	public void TC_02_ClickAndHold() {
 		driver.get("http://jqueryui.com/resources/demos/selectable/display-grid.html");
 		List<WebElement> numbers = driver.findElements(By.xpath("//ol[@id='selectable']/li"));
@@ -76,7 +76,7 @@ public class Topic_10_UserInteraction {
 
 	}
 
-	@Test
+	// @Test
 	public void TC_03_SelectRandomItem() {
 		driver.get("http://jqueryui.com/resources/demos/selectable/display-grid.html");
 		List<WebElement> numbers = driver.findElements(By.xpath("//ol[@id='selectable']/li"));
@@ -91,7 +91,7 @@ public class Topic_10_UserInteraction {
 
 	}
 
-	@Test
+	// @Test
 	public void TC_04_DoubleClick() {
 		driver.get("http://www.seleniumlearn.com/double-click");
 		WebElement doubleClickbtn = driver.findElement(By.xpath("//button[text()='Double-Click Me!']"));
@@ -101,7 +101,7 @@ public class Topic_10_UserInteraction {
 		Assert.assertEquals(driver.switchTo().alert().getText(), "The Button was double-clicked.");
 	}
 
-	@Test
+	// @Test
 	public void TC_05_RightClick() {
 		driver.get("http://swisnl.github.io/jQuery-contextMenu/demo.html");
 
@@ -139,7 +139,7 @@ public class Topic_10_UserInteraction {
 
 	}
 
-	@Test
+	// @Test
 	public void TC_07_DragAndrop_HTML5() throws Exception {
 		driver.get("http://the-internet.herokuapp.com/drag_and_drop");
 

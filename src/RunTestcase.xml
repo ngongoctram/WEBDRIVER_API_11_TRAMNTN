@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TIKI" parallel="false">
+  <test name="Run on FIREFOX">
+  <groups>
+      <run>
+          <include name ="user"/>
+      </run>
+  </groups>
+  
+    <classes>
+      <class name="TestNG.TestNG_01_Annotation"/>
+      <class name="TestNG.TestNG_02_Group"/>
+      
+    </classes>
+  </test> 
+</suite> 

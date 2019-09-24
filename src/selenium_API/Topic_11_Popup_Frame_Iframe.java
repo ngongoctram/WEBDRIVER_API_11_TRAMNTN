@@ -39,12 +39,12 @@ public class Topic_11_Popup_Frame_Iframe {
 		// sau khi close thi kiem tra no khong con displayed
 		Assert.assertFalse(popupBaner.isDisplayed());
 
-		// verify right banner co 9 images
+		// verify right banner co 10 images
 		List<WebElement> rightBannerImages = driver.findElements(By.xpath("//div[@id='rightbanner']//img"));
 		int rightBannerImageNumber = rightBannerImages.size();
 
 		System.out.println("Right banner image:" + rightBannerImageNumber);
-		Assert.assertEquals(rightBannerImageNumber, 9);
+		Assert.assertEquals(rightBannerImageNumber, 10);
 
 		// verify flipbanner hien thi va co 8 images
 		List<WebElement> flipBannerImages = driver.findElements(By.xpath("//div[@class ='flipBanner']//img[@class='front icon']"));

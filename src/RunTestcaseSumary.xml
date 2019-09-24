@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TIKI" parallel="false">
+   <suite-files>
+         <suite-file path="RunTestcase.xml" />
+         <suite-file path="RunTestcaseBank.xml" />
+   </suite-files>
+</suite> 

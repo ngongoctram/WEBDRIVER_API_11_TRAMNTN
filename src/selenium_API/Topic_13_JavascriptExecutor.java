@@ -42,7 +42,9 @@ public class Topic_13_JavascriptExecutor {
 
 	@BeforeClass
 	public void beforeClass() {
-		// driver = new FirefoxDriver();
+//		driver = new FirefoxDriver();
+//		System.setProperty("webdriver.gecko.driver", ".\\lib\\geckodriver.exe");
+//		driver = new FirefoxDriver();
 		System.setProperty("webdriver.chrome.driver", ".\\lib\\chromedriver.exe");
 		driver = new ChromeDriver();
 		javascript = (JavascriptExecutor) driver;

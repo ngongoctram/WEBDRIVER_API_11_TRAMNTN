@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TIKI" parallel="tests" thread-count="3">
+   <parameter name ="username" value ="ngoctramtk94@gmail.com"/>
+   <parameter name ="password" value ="123456"/>
+   
+  <test name="Run on FIREFOX">
+  <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="TestNG.TestNG_05_Parameters_multiBrowser"/> 
+    </classes>
+  </test> 
+  
+    <test name="Run on CHROME">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="TestNG.TestNG_05_Parameters_multiBrowser"/> 
+    </classes>
+  </test> 
+  
+    <test name="Run on HEADLESS CHROME">
+    <parameter name="browser" value="headless"/>
+    <classes>
+      <class name="TestNG.TestNG_06_Parallel"/> 
+    </classes>
+  </test>  
+</suite> 
